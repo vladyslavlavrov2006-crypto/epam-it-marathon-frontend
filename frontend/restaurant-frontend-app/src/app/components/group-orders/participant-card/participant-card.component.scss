@@ -1,0 +1,138 @@
+@use 'app/shared/styles/abstracts/colors' as color;
+
+.card {
+  padding: 1.25rem 1rem;
+  border-radius: 0.75rem;
+  background: color.$neutral-0;
+  box-shadow: 0 0 10px 4px color.$shadow;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  color: color.$neutral-900;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.remove-guest {
+  flex: 0 0 auto;
+  padding: 0 0 0.25rem;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: color.$neutral-900;
+  font: inherit;
+  cursor: pointer;
+}
+
+.chip {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.submitted {
+  color: color.$green-800;
+  background: color.$green-100;
+}
+
+.pending {
+  color: color.$orange-600;
+  background: color.$orange-100;
+}
+
+.items {
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 4rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid color.$neutral-100;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background: color.$green-100;
+}
+
+.initial {
+  display: grid;
+  place-items: center;
+  color: color.$green-800;
+}
+
+.name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+}
+
+.qty,
+.price {
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
+.price {
+  min-width: 5rem;
+  text-align: right;
+  font-weight: 600;
+}
+
+.empty {
+  padding: 0.75rem 0;
+  color: color.$neutral-600;
+  font-size: 0.875rem;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid color.$neutral-100;
+  font-weight: 600;
+}
+
+@media (max-width: 375px) {
+  .card {
+    padding: 1rem 0.75rem;
+  }
+
+  .item {
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+    column-gap: 0.5rem;
+  }
+
+  .qty {
+    grid-column: 2;
+    grid-row: 2;
+    color: color.$neutral-600;
+    font-size: 0.75rem;
+  }
+
+  .price {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    min-width: auto;
+  }
+}

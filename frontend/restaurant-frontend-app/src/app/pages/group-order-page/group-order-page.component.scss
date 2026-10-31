@@ -1,0 +1,221 @@
+@use 'app/shared/styles/abstracts/colors' as color;
+
+.page {
+  box-sizing: border-box;
+  width: min(100% - 2rem, 52rem);
+  margin: 1rem auto;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: color.$neutral-100;
+  box-shadow: 0 0 10px 4px color.$shadow;
+}
+
+.page-header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid color.$green-150;
+}
+
+.title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 0.25rem 0.625rem;
+  border-radius: 1rem;
+  background: color.$green-100;
+  color: color.$green-800;
+  font-size: 0.75rem;
+}
+
+.status-badge.sent {
+  background: color.$orange-100;
+  color: color.$neutral-900;
+}
+
+.status-badge.closed {
+  background: color.$neutral-200;
+  color: color.$neutral-700;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  color: color.$neutral-700;
+  font-size: 0.875rem;
+}
+
+.sync-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-top: 0.75rem;
+  color: color.$neutral-600;
+  font-size: 0.75rem;
+}
+
+.refresh-button {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid color.$green-600;
+  border-radius: 0.375rem;
+  background: color.$neutral-0;
+  color: color.$green-800;
+  font: inherit;
+  cursor: pointer;
+}
+
+.refresh-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.refresh-error {
+  color: color.$orange-600;
+}
+
+.participants {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  list-style: none;
+}
+
+.pending-notice {
+  margin-top: 1.5rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid color.$orange-100;
+  border-radius: 0.5rem;
+  background: color.$orange-30;
+  color: color.$neutral-900;
+  font-size: 0.875rem;
+}
+
+.consolidated {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: color.$neutral-0;
+}
+
+.consolidated h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.consolidated-items {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.consolidated-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid color.$neutral-100;
+  font-size: 0.875rem;
+}
+
+.no-submitted-dishes,
+.empty-state {
+  color: color.$neutral-600;
+  font-size: 0.875rem;
+}
+
+.empty-state {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid color.$green-150;
+}
+
+.total h2,
+.total p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.total p {
+  color: color.$green-800;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.submit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.loading,
+.error-state {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.error-state p {
+  margin-bottom: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.remove-confirmation {
+  line-height: 1.6;
+}
+
+.remove-confirm-button {
+  color: color.$red-400;
+  background: color.$neutral-0;
+  border-color: color.$red-400;
+}
+
+.remove-confirm-button::before {
+  display: none;
+}
+
+.remove-confirm-button:hover:not(:disabled) {
+  background: color.$red-30;
+}
+
+@media (max-width: 375px) {
+  .page {
+    width: 100%;
+    margin: 0;
+    padding: 1.25rem 0.875rem;
+    border-radius: 0;
+  }
+
+  .details {
+    gap: 0.5rem 0.875rem;
+  }
+
+  .consolidated {
+    padding: 1rem 0.75rem;
+  }
+}
